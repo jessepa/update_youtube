@@ -1,0 +1,14 @@
+Write a gui python code that downloads video and audio from youtube.
+Requirements:
+- a textbox for the youtube video
+- a radio button to choose between download video and audio, or just audio.
+- a list for the video resolutions available
+- a list for the audio qualities available
+- the user can choose where he wants to save the video or audio using a gui folder selector
+-
+
+use tls for the download
+the download will not via api. It will be via regular web Requirements
+
+Make the app robust
+- save the python code as "youtube_down.py"
