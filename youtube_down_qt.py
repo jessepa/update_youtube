@@ -199,6 +199,13 @@ class YouTubeDownloader(QMainWindow):
         self.fetch_btn.clicked.connect(self.fetch_video_info)
         url_input_layout.addWidget(self.fetch_btn)
         
+        # Add Clear button
+        self.clear_btn = QPushButton("🗑️ Clear")
+        self.clear_btn.setMinimumHeight(35)
+        self.clear_btn.setMinimumWidth(100)
+        self.clear_btn.clicked.connect(self.clear_all)
+        url_input_layout.addWidget(self.clear_btn)
+        
         url_layout.addLayout(url_input_layout)
         main_layout.addWidget(url_group)
         
@@ -389,6 +396,32 @@ class YouTubeDownloader(QMainWindow):
         """Add message to log output"""
         self.log_text.append(message)
         self.log_text.ensureCursorVisible()
+    
+    def clear_all(self):
+        """Clear the URL field and log output"""
+        # Clear URL field
+        self.url_entry.clear()
+        
+        # Clear log output
+        self.log_text.clear()
+        
+        # Clear format lists
+        self.video_list.clear()
+        self.audio_list.clear()
+        
+        # Reset format data
+        self.video_formats.clear()
+        self.audio_formats.clear()
+        
+        # Reset status
+        self.status_label.setText("Ready")
+        self.progress_label.setText("")
+        
+        # Disable download button
+        self.download_btn.setEnabled(False)
+        
+        # Log the clear action
+        self.log_message("Interface cleared - ready for new download")
     
     def validate_url(self, url):
         """Validate YouTube URL"""
